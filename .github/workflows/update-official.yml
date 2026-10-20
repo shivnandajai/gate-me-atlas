@@ -1,0 +1,112 @@
+name: Update GATE 2027 dates and news
+
+on:
+  schedule:
+    # GitHub uses UTC. 02:29 and 14:29 UTC are 7:59 AM and 7:59 PM in India.
+    - cron: "29 2,14 * * *"
+  workflow_dispatch: # lets you run it any time from the Actions tab
+  push:
+    branches: [main] # publishes the site again whenever you change it
+
+permissions:
+  contents: write # save data/official.json back to the repository
+  pages: write # publish the website
+  id-token: write # required by GitHub Pages
+  actions: write # keep this schedule switched on
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      read_ok: ${{ steps.result.outputs.ok }}
+    steps:
+      - name: Get the website files
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the page reader
+        run: pip install -r scripts/requirements.txt
+
+      - name: Test the page reader on the sample pages
+        run: python tests/test_parser.py
+
+      - name: Read the official GATE 2027 pages
+        id: plain
+        continue-on-error: true
+        run: python scripts/update_official.py
+
+      - name: Try again with a real browser if the plain read failed
+        id: browser
+        if: steps.plain.outcome == 'failure'
+        continue-on-error: true
+        run: |
+          pip install playwright==1.47.0
+          python -m playwright install --with-deps chromium
+          python scripts/update_official.py --browser
+
+      - name: Note whether the read worked
+        id: result
+        run: |
+          if [ "${{ steps.plain.outcome }}" = "success" ] || [ "${{ steps.browser.outcome }}" = "success" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Save the new data
+        if: steps.result.outputs.ok == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/official.json
+          if git diff --cached --quiet; then
+            echo "Nothing new to save."
+          else
+            git commit -m "Update official GATE 2027 dates and news"
+            git pull --rebase --autostash
+            git push
+          fi
+
+      - name: Keep this schedule switched on
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow enable update-official.yml --repo "${{ github.repository }}"
+
+      - name: Prepare the website for publishing
+        uses: actions/configure-pages@v5
+
+      - name: Package the website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish the website
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  report:
+    needs: [update, deploy]
+    if: always() && needs.update.outputs.read_ok != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report that the official pages were not read
+        run: |
+          echo "::error::The official GATE 2027 dates and news were not updated this time. The failed step in the update job shows why. The website still shows the last good dates and news. If this keeps happening, the official site has probably changed its layout and scripts/update_official.py needs an update."
+          exit 1

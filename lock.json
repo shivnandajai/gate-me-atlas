@@ -1,0 +1,7 @@
+{
+ "kdf": "PBKDF2-HMAC-SHA256",
+ "iter": 600000,
+ "salt": "V0IocHWvsFD5yICDe8ghrA==",
+ "cipher": "AES-256-GCM",
+ "login": "lower-case username + \":\" + password"
+}

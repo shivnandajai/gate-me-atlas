@@ -1,0 +1,88 @@
+{
+ "checkedAt": "2026-10-20T22:33:26+05:30",
+ "source": "https://gate2027.iitm.ac.in/",
+ "news": [
+  {
+   "date": "2026-10-16",
+   "title": "GATE 2027 application registration portal is closed.",
+   "url": "https://gate2027.iitm.ac.in/notifications"
+  },
+  {
+   "date": "2026-10-14",
+   "title": "Due to multiple requests received and upon consideration, the online registration portal (with late fee) will be reopened from 15 October 2026, 10:30 AM to 16 October 2026, 10:29 AM.",
+   "url": "https://gate2027.iitm.ac.in/notifications"
+  }
+ ],
+ "dates": [
+  {
+   "k": "reg_open",
+   "label": "Online application portal (GOAPS) opened",
+   "start": "2026-09-02",
+   "end": null,
+   "note": ""
+  },
+  {
+   "k": "reg_close",
+   "label": "Regular registration closed",
+   "start": "2026-10-05",
+   "end": null,
+   "note": "Without late fee"
+  },
+  {
+   "k": "reg_late",
+   "label": "Extended registration closed",
+   "start": "2026-10-12",
+   "end": null,
+   "note": "With late fee"
+  },
+  {
+   "k": "reg_special",
+   "label": "Special registration window",
+   "start": "2026-10-15",
+   "end": "2026-10-16",
+   "note": "15 Oct 10:30 AM to 16 Oct 10:29 AM, with late fee"
+  },
+  {
+   "k": "rectify",
+   "label": "Application rectification window",
+   "start": "2026-10-14",
+   "end": "2026-10-31",
+   "note": "For applications with scrutiny defects"
+  },
+  {
+   "k": "correction",
+   "label": "Data correction window (with fee)",
+   "start": null,
+   "end": null,
+   "note": "To be announced"
+  },
+  {
+   "k": "city",
+   "label": "Exam city allotment notification",
+   "start": "2027-01-04",
+   "end": null,
+   "note": ""
+  },
+  {
+   "k": "admit",
+   "label": "Admit card download",
+   "start": null,
+   "end": null,
+   "note": "To be announced"
+  },
+  {
+   "k": "exam",
+   "label": "GATE 2027 examinations",
+   "start": "2027-02-06",
+   "end": "2027-02-21",
+   "note": "6–7, 13–14 and 20–21 Feb 2027. Check the official exam schedule for the ME paper date."
+  },
+  {
+   "k": "result",
+   "label": "Results announced",
+   "start": "2027-03-19",
+   "end": null,
+   "note": ""
+  }
+ ]
+}

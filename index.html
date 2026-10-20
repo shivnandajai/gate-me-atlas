@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#e7ecf4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#060a13" media="(prefers-color-scheme: dark)">
+<title>GATE ME Atlas</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232d5bff'/%3E%3Crect x='14' y='34' width='8' height='16' rx='3' fill='white'/%3E%3Crect x='28' y='22' width='8' height='28' rx='3' fill='white'/%3E%3Crect x='42' y='12' width='8' height='38' rx='3' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Geist:wght@400..650&family=Geist+Mono:wght@400..600&display=swap">
+<script>try{var t=localStorage.getItem('gma-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<style>
+:root{color-scheme:light}
+[hidden]{display:none!important}
+:root{
+  --bg:#e7ecf4;
+  --ink:#0d1626; --ink-2:#435069; --ink-3:#66728b;
+  --line:rgba(13,22,38,.09); --line-2:rgba(13,22,38,.16);
+  --accent:#2d5bff; --accent-ink:#ffffff; --accent-soft:rgba(45,91,255,.12);
+  --glass:rgba(255,255,255,.56); --glass-strong:rgba(255,255,255,.80); --glass-solid:#f6f8fc;
+  --sheen:rgba(255,255,255,.65); --glass-hi:rgba(255,255,255,.95); --glass-lo:rgba(13,22,38,.05);
+  --glass-rim:rgba(13,22,38,.08);
+  --shadow:0 1px 2px rgba(20,35,70,.06),0 14px 34px rgba(20,35,70,.10);
+  --hi:#e5484d; --mid:#e59a00; --lo:#14a090;
+  --hi-soft:rgba(229,72,77,.13); --mid-soft:rgba(229,154,0,.15); --lo-soft:rgba(20,160,144,.13);
+  --hi-ink:#b4262b; --mid-ink:#8a5a00; --lo-ink:#0b6e63;
+  --sec-ga:#eda100; --sec-s1:#e87ba4; --sec-s2:#2a78d6; --sec-s3:#eb6834; --sec-s4:#1baf7a;
+  --heat:#2563d9; --heat-ink:#ffffff;
+  --stack-ink:#0b1220;
+  --ok:#0b7a3e; --ok-soft:rgba(11,122,62,.12);
+  --aur-1:#8cc3ff; --aur-2:#c6b4ff; --aur-3:#94ead1; --aur-4:#ffd0b2; --aur-op:.75;
+  --font-display:"Bricolage Grotesque",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-body:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --r-xl:28px; --r-lg:22px; --r-md:14px; --r-sm:9px;
+  --blur:22px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#060a13;
+    --ink:#edf1fa; --ink-2:#a8b2c6; --ink-3:#8590a6;
+    --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.15);
+    --accent:#8aa4ff; --accent-ink:#0a1020; --accent-soft:rgba(138,164,255,.16);
+    --glass:rgba(22,28,46,.52); --glass-strong:rgba(14,19,33,.78); --glass-solid:#121826;
+    --sheen:rgba(255,255,255,.07); --glass-hi:rgba(255,255,255,.13); --glass-lo:rgba(0,0,0,.28);
+    --glass-rim:rgba(255,255,255,.09);
+    --shadow:0 1px 2px rgba(0,0,0,.45),0 16px 40px rgba(0,0,0,.45);
+    --hi:#e5484d; --mid:#c98500; --lo:#199e8e;
+    --hi-soft:rgba(229,72,77,.20); --mid-soft:rgba(201,133,0,.22); --lo-soft:rgba(25,158,142,.20);
+    --hi-ink:#ff8a8d; --mid-ink:#f2bb52; --lo-ink:#5fd6c4;
+    --sec-ga:#c98500; --sec-s1:#d55181; --sec-s2:#3987e5; --sec-s3:#d95926; --sec-s4:#199e70;
+    --heat:#6aa6f0; --heat-ink:#06101f;
+    --ok:#4ccf86; --ok-soft:rgba(76,207,134,.15);
+    --aur-1:#1e44b8; --aur-2:#5a24b8; --aur-3:#0e6f66; --aur-4:#8f3512; --aur-op:.55;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#060a13;
+  --ink:#edf1fa; --ink-2:#a8b2c6; --ink-3:#8590a6;
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.15);
+  --accent:#8aa4ff; --accent-ink:#0a1020; --accent-soft:rgba(138,164,255,.16);
+  --glass:rgba(22,28,46,.52); --glass-strong:rgba(14,19,33,.78); --glass-solid:#121826;
+  --sheen:rgba(255,255,255,.07); --glass-hi:rgba(255,255,255,.13); --glass-lo:rgba(0,0,0,.28);
+  --glass-rim:rgba(255,255,255,.09);
+  --shadow:0 1px 2px rgba(0,0,0,.45),0 16px 40px rgba(0,0,0,.45);
+  --hi:#e5484d; --mid:#c98500; --lo:#199e8e;
+  --hi-soft:rgba(229,72,77,.20); --mid-soft:rgba(201,133,0,.22); --lo-soft:rgba(25,158,142,.20);
+  --hi-ink:#ff8a8d; --mid-ink:#f2bb52; --lo-ink:#5fd6c4;
+  --sec-ga:#c98500; --sec-s1:#d55181; --sec-s2:#3987e5; --sec-s3:#d95926; --sec-s4:#199e70;
+  --heat:#6aa6f0; --heat-ink:#06101f;
+  --ok:#4ccf86; --ok-soft:rgba(76,207,134,.15);
+  --aur-1:#1e44b8; --aur-2:#5a24b8; --aur-3:#0e6f66; --aur-4:#8f3512; --aur-op:.55;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--font-body); font-size:15px; line-height:1.55;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  min-height:100vh; overflow-x:hidden;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--glass-strong)}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
+h1,h2,h3{font-family:var(--font-display);font-weight:620;letter-spacing:-.02em;text-wrap:balance;margin:0}
+p{margin:0}
+.num,.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+
+/* ---------- aurora field ---------- */
+.aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;width:70vmax;height:70vmax;border-radius:50%;opacity:var(--aur-op);will-change:transform}
+.aurora i:nth-child(1){left:-22vmax;top:-30vmax;background:radial-gradient(closest-side,var(--aur-1),transparent 72%);animation:drift1 46s ease-in-out infinite alternate}
+.aurora i:nth-child(2){right:-26vmax;top:-12vmax;background:radial-gradient(closest-side,var(--aur-2),transparent 72%);animation:drift2 54s ease-in-out infinite alternate}
+.aurora i:nth-child(3){left:10vmax;bottom:-40vmax;background:radial-gradient(closest-side,var(--aur-3),transparent 72%);animation:drift3 60s ease-in-out infinite alternate}
+.aurora i:nth-child(4){right:-10vmax;bottom:-36vmax;background:radial-gradient(closest-side,var(--aur-4),transparent 70%);animation:drift1 66s ease-in-out infinite alternate-reverse}
+@keyframes drift1{to{transform:translate3d(8vmax,6vmax,0) scale(1.08)}}
+@keyframes drift2{to{transform:translate3d(-7vmax,9vmax,0) scale(.94)}}
+@keyframes drift3{to{transform:translate3d(6vmax,-8vmax,0) scale(1.1)}}
+@media (prefers-reduced-motion: reduce){.aurora i{animation:none}}
+
+/* ---------- glass ---------- */
+.glass{
+  position:relative;
+  background:linear-gradient(180deg,var(--sheen) 0%,rgba(255,255,255,0) 46%),var(--glass);
+  border:1px solid var(--glass-rim); border-radius:var(--r-lg);
+  box-shadow:inset 0 1px 0 var(--glass-hi),inset 0 -1px 0 var(--glass-lo),var(--shadow);
+  -webkit-backdrop-filter:blur(var(--blur)) saturate(165%); backdrop-filter:blur(var(--blur)) saturate(165%);
+}
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+  .glass{background:var(--glass-solid)}
+}
+
+.mark{width:34px;height:34px;flex:none;border-radius:11px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--accent),color-mix(in oklab,var(--accent) 55%,var(--sec-s4)));color:var(--accent-ink);
+  font-family:var(--font-mono);font-weight:600;font-size:12px;letter-spacing:.02em}
+
+/* ---------- sign-in screen ---------- */
+.gate{min-height:100vh;min-height:100dvh;display:grid;place-items:center;align-content:center;gap:16px;
+  padding:calc(24px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.card{width:min(100%,400px);padding:30px 28px 26px;border-radius:var(--r-xl)}
+.card .mark{width:46px;height:46px;border-radius:14px;font-size:14px;margin-bottom:18px}
+.card h1{font-size:27px;line-height:1.15}
+.lead{color:var(--ink-2);margin:8px 0 22px;font-size:14.5px}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.lab{font-size:13px;font-weight:550;color:var(--ink-2)}
+.box{display:flex;align-items:center;border:1px solid var(--line-2);background:var(--glass-strong);border-radius:12px;
+  box-shadow:inset 0 1px 0 var(--glass-hi);transition:border-color .15s,box-shadow .15s}
+.box:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.box input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:16px;color:var(--ink);padding:11px 13px;outline:none;border-radius:12px}
+.eye{flex:none;width:40px;height:40px;margin-right:2px;border:0;background:transparent;color:var(--ink-3);border-radius:10px;display:grid;place-items:center;cursor:pointer}
+.eye:hover{color:var(--ink)}
+.eye svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.eye .off{display:none}
+.eye[aria-pressed="true"] .on{display:none}
+.eye[aria-pressed="true"] .off{display:inline}
+.keep{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--ink-2);margin:4px 0 18px;cursor:pointer;width:max-content;max-width:100%}
+.keep input{width:17px;height:17px;accent-color:var(--accent);margin:0;flex:none}
+.err{color:var(--hi-ink);background:var(--hi-soft);border-radius:10px;padding:9px 12px;font-size:14px;margin:-4px 0 14px}
+.go{width:100%;border:0;border-radius:999px;padding:12px 18px;background:var(--accent);color:var(--accent-ink);font:inherit;font-weight:600;font-size:15px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.go:hover:not(:disabled){filter:brightness(1.06)}
+.go:disabled{opacity:.75;cursor:progress}
+.spin{width:16px;height:16px;flex:none;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.spin{animation-duration:2.4s}}
+.opening{display:flex;align-items:center;gap:12px;color:var(--ink-2);font-size:15px}
+.note{font-size:12.5px;color:var(--ink-3);text-align:center;max-width:400px}
+@media (max-width:440px){.card{padding:24px 20px 22px}.card h1{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<main class="gate">
+  <div class="card glass" id="opening" hidden><div class="opening"><span class="spin" aria-hidden="true"></span><span>Opening GATE ME Atlas…</span></div></div>
+  <form class="card glass" id="gate" novalidate hidden>
+    <div class="mark" aria-hidden="true">ME</div>
+    <h1>GATE ME Atlas</h1>
+    <p class="lead">This website is private. Sign in with the username and password you were given.</p>
+    <div class="field"><label class="lab" for="u">Username</label>
+      <span class="box"><input id="u" name="username" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" required></span></div>
+    <div class="field"><label class="lab" for="p">Password</label>
+      <span class="box"><input id="p" name="password" type="password" autocomplete="current-password" required>
+        <button class="eye" id="eye" type="button" aria-pressed="false" aria-label="Show password" title="Show password">
+          <svg class="on" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          <svg class="off" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 5.1A10.4 10.4 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6A17.4 17.4 0 0 0 2 12s3.6 7 10 7a9.7 9.7 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>
+        </button></span></div>
+    <label class="keep"><input type="checkbox" id="keep" checked> Stay signed in on this device</label>
+    <p class="err" id="err" role="alert" hidden></p>
+    <button class="go" id="go" type="submit">Sign in</button>
+  </form>
+  <noscript><div class="card glass"><h1>GATE ME Atlas</h1><p class="lead">This website needs JavaScript. Turn it on and reload the page.</p></div></noscript>
+  <p class="note">Ask the person who shared this website for the login. Not an official GATE website.</p>
+</main>
+<script>
+/* Sign-in screen. The website itself (app.bin) and every question-bank paper (qb/*.bin) are encrypted with
+   AES-256-GCM. The key is derived from "<username>:<password>" (PBKDF2-SHA256), so only the right login
+   can open them; this page holds nothing else. */
+(() => {
+  'use strict';
+  const L = {"salt": "V0IocHWvsFD5yICDe8ghrA==", "iter": 600000, "app": "app.bin?v=726ea76ac0"};
+  const NAME = 'gma-lock-' + L.salt.replace(/[^A-Za-z0-9]/g, '').slice(0, 10);   // a new password gets a new name
+  const $ = id => document.getElementById(id);
+  const form = $('gate'), opening = $('opening'), err = $('err'), go = $('go');
+  const subtle = window.crypto && window.crypto.subtle;
+  const NET = 'Could not load the website. Check the internet connection and try again.';
+
+  const fromB64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  const toB64 = buf => { let s = ''; new Uint8Array(buf).forEach(b => { s += String.fromCharCode(b); }); return btoa(s); };
+  const saved = () => { try { return localStorage.getItem(NAME) || sessionStorage.getItem(NAME); } catch (e) { return null; } };
+  const forget = () => { try { localStorage.removeItem(NAME); sessionStorage.removeItem(NAME); } catch (e) { /* ignore */ } };
+  const remember = (raw, keep) => {
+    forget();
+    try { (keep ? localStorage : sessionStorage).setItem(NAME, toB64(raw)); } catch (e) { /* private mode: sign in each visit */ }
+  };
+
+  async function fetchBin(url) {
+    let r;
+    try { r = await fetch(url); } catch (e) { e.net = true; throw e; }
+    if (!r.ok) { const e = new Error('HTTP ' + r.status); e.net = true; throw e; }
+    return r.arrayBuffer();
+  }
+  let appBin = null;
+  const getApp = () => (appBin = appBin || fetchBin(L.app).catch(e => { appBin = null; throw e; }));
+
+  async function derive(user, pass) {
+    const secret = (user.trim().toLowerCase() + ':' + pass).normalize('NFC');
+    const base = await subtle.importKey('raw', new TextEncoder().encode(secret), 'PBKDF2', false, ['deriveBits']);
+    return subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: fromB64(L.salt), iterations: L.iter }, base, 256);
+  }
+  const aesKey = raw => subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']);
+  const open = (key, buf) => { const u = new Uint8Array(buf); return subtle.decrypt({ name: 'AES-GCM', iv: u.subarray(0, 12) }, key, u.subarray(12)); };
+
+  // One question-bank paper: 4-byte header length, the questions as JSON, then the diagrams (PNG) back to back.
+  function unpack(buf) {
+    const n = new DataView(buf).getUint32(0);
+    const head = JSON.parse(new TextDecoder().decode(new Uint8Array(buf, 4, n)));
+    const urls = head.figs.map(f => URL.createObjectURL(new Blob([new Uint8Array(buf, 4 + n + f[0], f[1])], { type: 'image/png' })));
+    head.q.forEach(q => { if (q.f) q.f = q.f.map(x => [urls[x[0]], x[1], x[2], x[3]]); });
+    delete head.figs;
+    return head;
+  }
+
+  // Swap this screen for the website: its head, its body, then run its scripts in order.
+  function boot(key, html) {
+    window.GMA_LOCK = {
+      paper: async (pid, v) => unpack(await open(key, await fetchBin('qb/' + encodeURIComponent(pid) + '.bin' + (v ? '?v=' + v : '')))),
+      signOut: () => { forget(); location.reload(); },
+    };
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const root = document.documentElement;
+    root.removeAttribute('data-theme');           // the website applies the saved colour theme itself
+    [...doc.documentElement.attributes].forEach(a => root.setAttribute(a.name, a.value));
+    document.title = doc.title || document.title;
+    document.head.replaceChildren(...doc.head.childNodes);
+    document.body.replaceChildren(...doc.body.childNodes);
+    document.querySelectorAll('script').forEach(old => {
+      if (old.type && old.type !== 'text/javascript' && old.type !== 'module') return;   // data blocks stay as they are
+      const s = document.createElement('script');
+      [...old.attributes].forEach(a => s.setAttribute(a.name, a.value));
+      s.textContent = old.textContent;
+      old.replaceWith(s);
+    });
+  }
+
+  // Decrypting the website is the password check: a wrong key fails AES-GCM's integrity check.
+  async function unlock(raw, keep) {
+    const key = await aesKey(raw);
+    const html = new TextDecoder().decode(await open(key, await getApp()));
+    if (keep !== undefined) remember(raw, keep);
+    boot(key, html);
+  }
+
+  function showForm(msg) {
+    opening.hidden = true;
+    form.hidden = false;
+    if (msg) { err.textContent = msg; err.hidden = false; }
+    if (window.matchMedia && matchMedia('(pointer: fine)').matches) $('u').focus();
+  }
+
+  $('eye').addEventListener('click', () => {
+    const p = $('p'), show = p.type === 'password';
+    p.type = show ? 'text' : 'password';
+    $('eye').setAttribute('aria-pressed', String(show));
+    $('eye').setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+    $('eye').title = show ? 'Hide password' : 'Show password';
+  });
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const user = $('u').value, pass = $('p').value;
+    err.hidden = true;
+    if (!user.trim() || !pass) { err.textContent = 'Enter the username and the password.'; err.hidden = false; return; }
+    go.disabled = true;
+    go.innerHTML = '<span class="spin" aria-hidden="true"></span><span>Checking…</span>';
+    try {
+      await unlock(await derive(user, pass), $('keep').checked);
+    } catch (x) {
+      go.disabled = false;
+      go.textContent = 'Sign in';
+      err.textContent = x && x.net ? NET : 'That username or password is not right. Please try again.';
+      err.hidden = false;
+      if (!(x && x.net)) $('p').select();
+    }
+  });
+
+  if (!subtle || !window.TextEncoder || !window.DOMParser || !document.body.replaceChildren) {
+    showForm('This browser cannot open the website. Please use an up-to-date Chrome, Edge, Firefox or Safari.');
+    go.disabled = true;
+    return;
+  }
+  const s = saved();
+  if (s) {
+    opening.hidden = false;
+    unlock(fromB64(s)).catch(e => {
+      if (!(e && e.net)) forget();                 // the password has changed since: sign in again
+      showForm(e && e.net ? NET : '');
+    });
+  } else {
+    showForm();
+    getApp().catch(() => { /* reported when signing in */ });   // download the website while the visitor types
+  }
+})();
+</script>
+</body>
+</html>
