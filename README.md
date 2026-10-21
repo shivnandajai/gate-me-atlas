@@ -2,6 +2,13 @@
 
 GATE ME Atlas is a private website for GATE 2027 Mechanical Engineering preparation. It ranks every syllabus subject and topic by the marks it carried in 17 past papers (2016 to 2026), and its question bank holds all 1,105 questions of those papers with their options and diagrams. It also shows the official GATE 2027 important dates and the latest official notifications.
 
+It has two practice sections, built on the official answer keys and worked solutions (GATE 2026 so far; more years are being added):
+
+- **GATE Quiz**: the questions of a paper one at a time, marked as soon as they are answered, with right and wrong sounds (can be switched off) and a worked explanation.
+- **Mock test**: a whole paper under exam conditions, on a screen laid out like the GATE exam: a 180-minute timer that starts with the first question, the question palette, Save & Next, Mark for Review, the GATE virtual calculator and the number keypad. The paper is marked only after it is submitted (or when the time runs out), with a subject-wise breakdown and every question's solution.
+
+Quiz answers and mock-test results are saved in the browser. They can also be kept in sync across devices through a private GitHub repository of the owner's (set up on the website). That too runs on GitHub's free service.
+
 The dates and notifications update automatically twice a day. The updates run on GitHub's free service, so they do not depend on any Claude subscription.
 
 ## How the automatic updates work
@@ -35,6 +42,7 @@ The dates and notifications update automatically twice a day. The updates run on
 | `index.html` | The website's start page |
 | `app.bin` | The website |
 | `qb/<paper>.bin` | Question bank: one paper's questions, options and diagrams |
+| `sol/<paper>.bin` | Official answer key and worked solutions of a paper (GATE Quiz, Mock test and the question bank) |
 | `lock.json` | Settings the start page needs to open the website |
 | `vendor/katex/` | KaTeX, which typesets the formulas (MIT licence, see `LICENSE.txt`) |
 | `data/official.json` | Official GATE 2027 dates and notifications, refreshed by the workflow |

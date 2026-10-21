@@ -185,7 +185,7 @@ p{margin:0}
    can open them; this page holds nothing else. */
 (() => {
   'use strict';
-  const L = {"salt": "V0IocHWvsFD5yICDe8ghrA==", "iter": 600000, "app": "app.bin?v=726ea76ac0"};
+  const L = {"salt": "V0IocHWvsFD5yICDe8ghrA==", "iter": 600000, "app": "app.bin?v=16f6ff885d"};
   const NAME = 'gma-lock-' + L.salt.replace(/[^A-Za-z0-9]/g, '').slice(0, 10);   // a new password gets a new name
   const $ = id => document.getElementById(id);
   const form = $('gate'), opening = $('opening'), err = $('err'), go = $('go');
@@ -233,6 +233,7 @@ p{margin:0}
     window.GMA_LOCK = {
       paper: async (pid, v) => unpack(await open(key, await fetchBin('qb/' + encodeURIComponent(pid) + '.bin' + (v ? '?v=' + v : '')))),
       signOut: () => { forget(); location.reload(); },
+      json: async (path, v) => JSON.parse(new TextDecoder().decode(await open(key, await fetchBin(path + (v ? '?v=' + v : ''))))),
     };
     const doc = new DOMParser().parseFromString(html, 'text/html');
     const root = document.documentElement;
