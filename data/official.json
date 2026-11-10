@@ -1,15 +1,15 @@
 {
- "checkedAt": "2026-11-09T15:29:53+05:30",
+ "checkedAt": "2026-11-10T15:40:30+05:30",
  "source": "https://gate2027.iitm.ac.in/",
  "news": [
   {
-   "date": "2026-10-16",
-   "title": "GATE 2027 application registration portal is closed.",
+   "date": "2026-11-10",
+   "title": "The Application Data Correction Window will be open from 10th November 2026 to 14th November 2026.",
    "url": "https://gate2027.iitm.ac.in/notifications"
   },
   {
-   "date": "2026-10-14",
-   "title": "Due to multiple requests received and upon consideration, the online registration portal (with late fee) will be reopened from 15 October 2026, 10:30 AM to 16 October 2026, 10:29 AM.",
+   "date": "2026-10-16",
+   "title": "GATE 2027 application registration portal is closed.",
    "url": "https://gate2027.iitm.ac.in/notifications"
   }
  ],
@@ -52,9 +52,9 @@
   {
    "k": "correction",
    "label": "Data correction window (with fee)",
-   "start": null,
-   "end": null,
-   "note": "To be announced"
+   "start": "2026-11-10",
+   "end": "2026-11-14",
+   "note": ""
   },
   {
    "k": "city",
